@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import Body from "./components/Body"
 
 function App() {
  
   return (
     <>
-      <h1 className='bg-amber-500'>Hello</h1>
+    <Body/>
     </>
   )
 }
