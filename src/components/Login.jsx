@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import Header from "./Header";
+import { useRef } from "react";
+import { Validate } from "../utils/validate";
 
 const Login = () => {
+  const email = useRef(null);
+  const password = useRef(null);
+  const name = useRef(null);
+
   const [isSignUp, setIsSignUp] = useState(true);
+  const [errorMessage,seterrorMessage] = useState(null);
 
   const handleClick = () => {
     setIsSignUp(!isSignUp);
+  };
+
+  const submitHandleClick = () => {
+    console.log(email.current.value);
+    console.log(password.current.value);
+    console.log(name.current.value)
+    const message = Validate(name.current.value,email.current.value,password.current.value);
+    seterrorMessage(message);
   };
 
   return (
@@ -27,28 +42,33 @@ const Login = () => {
         <form
           className="p-10 rounded-md max-w-md w-full"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.34)" }}
+          onSubmit={(e) => e.preventDefault()}
         >
           <h2 className="text-2xl text-center font-bold mb-6">
             {isSignUp ? "SignUp" : "SignIn"}
           </h2>
           {isSignUp && (
             <input
+              ref={name}
               type="text"
               placeholder="Name"
               className="w-full p-3 my-2 bg-transparent rounded text-white placeholder:text-gray-500 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600"
             />
           )}
           <input
+            ref={email}
             type="text"
             placeholder="Email address"
             className="w-full p-3 my-2 bg-transparent rounded text-white placeholder:text-gray-500 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600"
           />
           <input
+            ref={password}
             type="password"
             placeholder="Password"
             className="w-full p-3 my-2 bg-transparent rounded text-white placeholder:text-gray-500 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600"
           />
-          <button className="w-full bg-red-600 py-3 my-4 rounded hover:bg-red-700 transition">
+          <p className="text-red-500 font-bold">{errorMessage}</p>
+          <button className="w-full bg-red-600 py-3 my-4 rounded hover:bg-red-700 transition" onClick={submitHandleClick}>
             {isSignUp ? "SignUp" : "SignIn"}
           </button>
           <p className="text-sm text-gray-300">
