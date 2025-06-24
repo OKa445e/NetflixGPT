@@ -4,6 +4,6 @@ export const Validate = (name,email, password) => {
   const passwordValidation = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@()!%*?&.]{6,}$/.test(password);
   if (!emailValidation) return "Email is not Valid";
   if (!passwordValidation) return "Password is not Valid";
-  if(!nameValidation) return "Name is not Valid"
+ if (name && !/^[A-Za-z\s]{2,50}$/.test(name)) return "Name is not Valid";
   return null;
 }
