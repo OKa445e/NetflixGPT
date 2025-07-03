@@ -1,14 +1,17 @@
-import React from 'react'
-import Header from './Header'
+import useMoviePlaying from "../hooks/useMoviePlaying";
+import Header from "./Header";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browser = () => {
+   useMoviePlaying();
   return (
     <div>
-
-      <Header/>
-  
+      <Header />
+      <MainContainer/>
+      <SecondaryContainer/>
     </div>
-  )
-}
+  );
+};
 
-export default Browser
+export default Browser;
