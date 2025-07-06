@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile
 } from "firebase/auth";
+import { BG_URL } from "../utils/constants";
 const Login = () => {
   const navigate = useNavigate();
   const email = useRef(null);
@@ -23,9 +24,6 @@ const Login = () => {
   };
 
   const submitHandleClick = () => {
-    // console.log(email.current.value);
-    // console.log(password.current.value);
-    // console.log(name.current.value)
     const nameValue = isSignUp && name.current ? name.current.value : "";
     const message = Validate(
       nameValue,
@@ -70,7 +68,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
           navigate("/browse");
         })
         .catch((error) => {
@@ -87,7 +84,7 @@ const Login = () => {
       <div className="absolute inset-0">
         <img
           className="h-full w-full object-cover opacity-60"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/8200f588-2e93-4c95-8eab-ebba17821657/web/IN-en-20250616-TRIFECTA-perspective_9cbc87b2-d9bb-4fa8-9f8f-a4fe8fc72545_small.jpg"
+          src={BG_URL}
           alt="Netflix background"
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>

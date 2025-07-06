@@ -15,7 +15,7 @@ const useMoviePopular = () => {
       const json = await data.json();
       dispatch(popularMovieVideo(json.results));
     } catch (err) {
-      console.log("there is error: ", err);
+      ("there is error: ", err);
     }
   };
   useEffect(() => {
