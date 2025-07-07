@@ -1,0 +1,9 @@
+[33mc7182bb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mrecover-gpt-search[m[33m)[m Worked on GPT search functionality and integrated multiple languages for search functionality
+[33mfb23e4b[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m implemented various movies type
+[33m9490783[m working with Tmdb api and make main container including videos api from TMDB with embedding youtube iframe
+[33ma15692e[m private keys
+[33mc133802[m removing secret keys
+[33m3c71100[m Implemented Validation,authentication and redux toolkit
+[33mc30f5f8[m validation check for name,email and password
+[33maf86917[m Login form and header,body section
+[33m8423830[m set up project and integrate tailwind
